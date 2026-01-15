@@ -85,17 +85,9 @@ This lab demonstrates the deployment of Splunk Enterprise to monitor an Active D
 ### 7️⃣ Lab Verification / Testing
 - Conducted real-world tests to ensure monitoring works:
 
-#### Account Lockout
-![Test Lockout](screenshots/splunk/test-lockout.png)
-*Triggered an account lockout to verify Event ID 4740 captured in Splunk.*
-
-#### Failed Logons
-![Test Failed Logons](screenshots/splunk/test-failed-logons.png)
-*Performed failed logon attempts to verify Event ID 4625 captured.*
-
-#### Successful Logons
-![Test Successful Logon](screenshots/splunk/test-successful-logon.png)
-*Verified successful authentication events (Event ID 4624) in Splunk.*
+#### Account Lockout and Failed Logons
+![Test Lockout](screenshots/splunk/triggered-alerts.png)
+*Triggered an account lockout and performed failed logon attempts to verify Event ID 4625 and 4740 captured in Splunk.
 
 ---
 
