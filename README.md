@@ -5,6 +5,11 @@ This lab demonstrates the deployment of Splunk Enterprise to monitor an Active D
 
 ---
 
+## 🛡️ Why This Lab Matters
+This lab simulates real-world SOC monitoring by detecting authentication abuse such as brute-force attempts and account lockouts within an Active Directory environment. These detections are foundational to identifying credential-based attacks like password spraying and lateral movement.
+
+---
+
 ## 🧰 Technologies Used
 - Splunk Enterprise
 - Windows Server 2022 (Domain Controller)
@@ -27,8 +32,9 @@ This lab demonstrates the deployment of Splunk Enterprise to monitor an Active D
 ---
 
 ### 2️⃣ Add Data Inputs
-- Configured Splunk to monitor Windows Event Logs from DC01 and CLIENT01
-- Collected Security and System logs
+- Installed and configured Splunk Universal Forwarder on DC01 and CLIENT01
+- Forwarded Windows Security Event Logs to SIEM01
+- Verified successful ingestion into the `ad_logs` index
 
 ![Add Data Input](screenshots/splunk/add-data-input.png)
 *Adding Windows Event Logs as a data input for monitoring.*
@@ -73,9 +79,10 @@ This lab demonstrates the deployment of Splunk Enterprise to monitor an Active D
 
 ---
 
-### 6️⃣ Alert Configuration (Optional)
-- Created a search-based alert for failed logons >5 in 10 minutes
+### 6️⃣ Alert Configuration
+- Created a search-based alert for failed logons >5 in an hour.
 - Configured notification options (email/pop-up)
+- Designed to detect potential brute-force activity.
 
 ![Alert Configuration](screenshots/splunk/alert-configuration.png)
 *Shows alert setup for brute-force detection.*
@@ -87,7 +94,7 @@ This lab demonstrates the deployment of Splunk Enterprise to monitor an Active D
 
 #### Account Lockout and Failed Logons
 ![Test Lockout](screenshots/splunk/triggered-alerts.png)
-*Triggered an account lockout and performed failed logon attempts to verify Event ID 4625 and 4740 captured in Splunk.
+*Triggered an account lockout and performed failed logon attempts to verify Event ID 4625 and 4740 captured in Splunk.*
 
 ---
 
